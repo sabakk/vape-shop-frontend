@@ -1,9 +1,12 @@
 import { Outlet } from 'react-router-dom'
 
-import Navigatin from './Navigation'
-import { Box } from '@mui/material'
+import { Box, Typography, useTheme } from '@mui/material'
+import Header1 from './Header1'
+import Header2 from './Header2'
 
 export default function Layout() {
+  const theme = useTheme();
+
   return (
     <Box
       bgcolor="#eeeeee"
@@ -11,12 +14,13 @@ export default function Layout() {
       display="flex"
       flexDirection="column"
     >
-      <Navigatin />
+      <Header1 />
+      <Header2 />
       <Box flex="1" paddingTop="30px">
         <Outlet />
       </Box>
-      <Box display='flex' justifyContent="center">
-       { new Date().getFullYear() }
+      <Box display='flex' justifyContent="center" sx={{bgcolor: theme.palette.myColor.main}}>
+       <Typography>{ new Date().getFullYear() }</Typography>
       </Box>
     </Box>
   )

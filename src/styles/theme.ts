@@ -1,7 +1,19 @@
 import { createContext, useState, useMemo } from "react";
-import { createTheme } from "@mui/material/styles";
+import { createTheme, PaletteColor,
+  SimplePaletteColorOptions } from "@mui/material/styles";
 import { grey } from "@mui/material/colors";
 import { PaletteMode } from "@mui/material";
+
+declare module "@mui/material/styles" {
+  interface Palette {
+    myColor: PaletteColor;
+    bg: PaletteColor;
+  }
+
+  interface PaletteOptions {
+    myColor: SimplePaletteColorOptions;
+  }
+}
 
 export const getDesignTokens = (mode: PaletteMode) => ({
   palette: {
